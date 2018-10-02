@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+</nav>
+{% endblock %}
+
+{% block page_title %} Movies {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="header"><h1>IMDB Movies</h1></div>
+    <hr>
+
+    <table class="table table-hover">
+        <tr>
+            <th>Movies</th>
+            <th>Critical Reviews</th>
+            <th>Duration (minutes)</th>
+            <th>IMDB Scores</th>
+        </tr>
+
+        {% for movie in movie_names %}
+        <tr>
+            <td>{{ movie}}</td>
+            <td>{{ movies[movie]['Critical_reviews']}}</td>
+            <td>{{ movies[movie]['Duration']}}</td>
+            <td>{{ movies[movie]['IMDB_Scores']}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+    
+{% endblock %}
